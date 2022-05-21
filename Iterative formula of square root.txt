@@ -1,0 +1,26 @@
+一个是x= a 的平方根，所以我们可以通过a求出x的值。
+另外一条是x2 = (x1 + a / x1) / 2，可以通过x1的值求出x2的值，
+所以，只需要轮询的计算，不断的计算差值，直到满足差值小于1e-5就可以停止了
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	double a, x1, x2;   //float-%f会算术溢出
+	printf("请输入正数a的值:");
+	scanf("%lf", &a);
+	x1 = a / 2;         //用来初始化变量x1，x2
+	x2 = (x1 + a / x1) / 2;
+	/*if (fabs(x1 - x2) >= 1e-5)
+	{
+		x1 = x2;
+		x2 = (x1 + a / x1) / 2;
+	}*/
+	//或者
+	do
+	{
+		x1 = x2;
+		x2 = (x1 + a / x1) / 2;
+	} while (fabs(x1 - x2) >= 1e-5);
+	printf("%lf的平方根为:%lf\n", a, x2);
+	return 0;
+}
