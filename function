@@ -1,0 +1,22 @@
+# Renaissance
+//每调用一次某个函数就会将num的值增加1
+#include <stdio.h>
+void Add(int* p)
+{
+	(*p)++;
+	//*p++;是错的
+	//因为++的优先级大于*的
+	//所以这样写会是p先++，而不是（*p）++
+}
+
+int main()
+{
+	int num = 0;
+	Add(&num);
+	printf("&num=%d\n", num);
+	Add(&num);
+	printf("&num=%d\n", num);
+	Add(&num);
+	printf("&num=%d\n", num);
+	return 0;
+}
