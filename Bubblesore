@@ -1,0 +1,30 @@
+# Renaissance
+#include <stdio.h>
+#include <string.h>
+void Bubble(char str[])
+{
+	int len = strlen(str);
+	for (int n = 0; n < len - 1; n++)
+	{
+		for (int m = 0; m < len - 1 - n; m++)
+		{
+			if (str[m] > str[m + 1])
+			{
+				char t = str[m];
+					str[m] = str[m + 1];
+					str[m + 1] = t;
+			}
+		}
+	}
+}
+
+int main()
+{
+	char arr[11] = {0};
+	printf("请输入10个字符:");
+	for (int i = 0; i < 10; i++)
+		scanf("%c", &arr[i]);
+	Bubble(arr);
+	printf("这10个字符从大到小的排列顺序为:%s\n", arr);
+	return 0;
+}
