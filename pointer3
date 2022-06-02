@@ -1,0 +1,48 @@
+
+#include <stdio.h>
+#include <string.h>
+int str(char* a)
+{
+	int count = 0;
+	while (*a != '\0')
+	{
+		count ++;
+		a++;
+	}
+	return count;
+}
+int main()
+{
+	char a[100];
+	printf("请输入字符串:");
+	scanf("%s", a, 100);
+	int len = str(a);
+	printf("所求的字符串的长度为:%d\n",len);
+	return 0;
+}
+
+修改后：
+#include <stdio.h>
+int my_strlen(char* str)
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+int main()
+{
+	char arr[100];
+	printf("请输入字符串:");
+  //输入字符数组的两种方法：
+  //第一种：
+	gets(arr);
+  //第二种：
+	/*scanf("%s", &arr);*/
+	int len = my_strlen(arr);
+	printf("所求的字符串的长度为:%d\n", len);
+	return 0;
+}
