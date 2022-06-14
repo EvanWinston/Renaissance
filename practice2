@@ -1,0 +1,26 @@
+两个乒乓球队进行比赛，各出3人。甲队为A、B、C，3人，乙队为X、Y、Z，3人。
+已抽签决定比赛名单。有人向队员打听比赛的名单，A说他不和X比，C说他不和X、Z比，
+请编程找出3对参赛选手的对阵名单。
+#include <stdio.h>
+int main()
+{
+	char arr1[] = { 'A', 'B', 'C' }, arr2[] = { 'X','Y','Z' };
+	if ('A' && 'Z')
+		if ('C' && 'Y')
+			if ('B' && 'X')
+				printf("A和Z比，C和Y比，B和X比\n");
+	return 0;
+}
+#include <stdio.h>
+int main()
+{
+	char c1, c2, c3;//自定义c1和A比，c2和B比，c3和C比
+	for (c1 = 'X'; c1 <= 'Z'; c1++)
+		for (c2 = 'X'; c2 <= 'Z'; c2++)
+			if (c1 != c2)//避免重复
+				for (c3 = 'X'; c3 <= 'Z'; c3++)
+					if (c1 != c3 && c2 != c3)//避免重复
+						if (c1 != 'X' && c3 != 'X' && c3 != 'Z')//题目要求
+							printf("A和%c比\nB和%c比\nC和%c比\n", c1, c2, c3);
+	return 0;
+}
