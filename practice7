@@ -1,0 +1,17 @@
+编一程序，将两个任意输入的字符串连接起来，不要用strcat函数。
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char arr1[100], arr2[100];
+	printf("请输入第一个字符串:");
+	gets(arr1);
+	printf("请输入第二个字符串:");//此时输入字符串时，先加一个空格在输入
+	gets(arr2);
+	int len1 = strlen(arr1);
+	int len2 = strlen(arr2);
+	for (int i = 0; i <= len2; i++)
+		arr1[len1 + i] = arr2[i];
+	printf("%s\n", arr1);
+	return 0;
+}
