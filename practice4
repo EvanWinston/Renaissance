@@ -1,0 +1,34 @@
+编程实现字符分类统计功能。功能要求如下：
+1. 从键盘输入一行字符。
+2. 统计其中大写字母、小写字母、数字、空格以及其他字符的个数。
+
+//关键是用getchar数入字符
+#include <stdio.h>
+int main()
+{
+	char ch;
+	int majuscules = 0, minuscules = 0, digit = 0, space = 0, other = 0;
+	printf("请输入一行字符:");
+	while ((ch = getchar()) != '\n')
+	{
+		if (ch >= 'A' && ch <= 'Z')
+			majuscules++;
+		else
+			if (ch >= 'a' && ch <= 'z')
+				minuscules++;
+			else
+				if (ch >= '0' && ch <= '9')
+					digit++;
+				else
+					if (ch == ' ')
+						space++;
+					else
+						other++;
+	}
+	printf("大写字母的个数为:%d\n", majuscules);
+	printf("小写字母的个数为:%d\n", minuscules);
+	printf("数字的个数为:%d\n", digit);
+	printf("空格的个数为:%d\n", space);
+	printf("其他字符的个数为:%d\n", other);
+	return 0;
+}
