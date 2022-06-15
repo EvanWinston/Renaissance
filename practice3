@@ -1,0 +1,21 @@
+一辆以固定速度行驶的汽车，司机在上午10点看到里程表上的读数是一个“对称数”
+（即这个数从左向右读和从右向左读是完全一样的，也称为“回文数”）为95859。
+两小时后里程表上第二次出现了一个对称数。编程求出该新的对称数是多少。
+
+#include <stdio.h>
+int main()
+{
+	int a = 95859, tenthousand = 0, thousand = 0, hundred = 0, ten = 0, piece = 0;
+	for (a = a +1; ; a++)
+	{
+		tenthousand = a / 10000;
+		thousand = (a - tenthousand * 10000) / 1000;
+		hundred = (a - tenthousand * 10000 - thousand * 1000) / 100;
+		ten = (a - tenthousand * 10000 - thousand * 1000 - hundred * 100) / 10;
+		piece = a - tenthousand * 10000 - thousand * 1000 - hundred * 100 - ten * 10;
+		if ((tenthousand == piece) && (thousand == ten))
+			break;
+	}
+	printf("%d", a);
+	return 0;
+}
